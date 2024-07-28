@@ -2,13 +2,29 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(layout="wide")
-st.logo('17898105.png',icon_image='17898105.png')
+st.logo('17898105.png',icon_image='17898105.png',link='https://smashdown.streamlit.app/')
 # Title of the app
 st.title('Smashdown 2024 - Prevalent AI')
 st.divider()
 # Load the Excel file
 file_path = "fixture.csv"
 df = pd.read_csv(file_path)
+
+columns = ['Fixture','Tournament Rules','Results']
+
+# Create four columns for the buttons
+col11, col22, col32 = st.columns(3)
+
+# Initialize a variable to store the selected category
+selected_category = "Fixture"
+
+# Create buttons for each category
+if col11.button('Fixture',use_container_width=True):
+    selected_category = 'Fixture'
+if col22.button('Tournament Rules',use_container_width=True):
+    selected_category = 'Tournament Rules'
+if col33.button('Results',use_container_width=True):
+    selected_category = 'Results'
 
 # Extract unique categories for the buttons
 categories = df['Category'].unique()
