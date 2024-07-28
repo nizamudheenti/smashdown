@@ -49,6 +49,75 @@ if selected_category=='Fixture':
         st.subheader(f"{selected_category1}")
         category_df = df[df['Category'] == selected_category1]
         st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
+        if selected_category1=='Men’s Doubles':
+            with st.expander("Groups"):
+                co1, co2, co3  = st.columns(3)
+                co1.markdown(
+                            """
+                            Men A
+                            - Bipin M V & Ananthu Sunil
+                            - Emmanuel Joseph & Dion Paul George
+                            - Laby K Joy & Rakesh S
+                            - Gokul A A & Sajith M S"""
+                            )
+                co2.markdown(
+                            """
+                            Men B
+                            - Rakesh P B & Nizamudheen T I
+                            - Muhammed Althaf & Sreekumar T H
+                            - Harikrishnan & Jeen Michael
+                            - Shashi Salian & Akshay CA
+                            """
+                            )
+                co3.markdown(
+                            """
+                            Men C
+                            - Jacob George & Muhammed Jazim
+                            - Jithin Odattu O C & Neeraj Jayaraj
+                            - Anand Balakrishnan & Kumaresan Arumugham
+                            - Kiran Joseph & Sidharth Nair
+                            - John Thomas2 & Jubit John
+                            """
+                            )
+        if selected_category1=='Women’s Doubles':
+            with st.expander("Groups"):
+                co1, co2  = st.columns(2)
+                co1.markdown(
+                            """
+                            Women A
+                            - Shama Anjoom & Sarah Jacob
+                            - Parvathi Ambareesh & Sithara Mohan
+                            - Merin Jose & Sneha Achamma Cherian
+                            - Cristeena & Amrutha"""
+                            )
+                co2.markdown(
+                            """
+                            Women B
+                            - Swetha Shenoy & Ginu George
+                            - Amrita Surendran & Deepthi Dinakaran
+                            - Pappy A Lakshmi & Arya Suresh
+                            - Riya & Ann
+
+                            """
+                            )
+        if selected_category1=='Mixed Doubles':
+            with st.expander("Groups"):
+                co1, co2  = st.columns(2)
+                co1.markdown(
+                            """
+                            Mixed A
+                            - Pravitha V Namboothiri & Neeraj Gopan
+                            - Alan & Sandra Sharon
+                            - Mohammed Ashiq A & Denila Davis"""
+                            )
+                co2.markdown(
+                            """
+                            Mixed B
+                            - Pankaj Sherry Paret & Athira K B
+                            - Catherine Pulickan & Aljo Ajith
+                            - Vinju & Deepak
+                            """
+                            )
     else:
         st.subheader("Full Fixture")
         st.dataframe(df[['Match Number', 'Names', 'Category','Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
