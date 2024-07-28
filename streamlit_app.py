@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="PAI-SMASHDOWN",layout="wide")
 st.logo('17898105.png',icon_image='17898105.png',link='https://smashdown.streamlit.app/')
 # Title of the app
-st.header('Smashdown 2024 - Prevalent AI')
+st.header('SMASHDOWN 2024 - Prevalent AI')
 st.divider()
 # Load the Excel file
 file_path = "fixture.csv"
