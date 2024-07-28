@@ -4,7 +4,7 @@ st.title("Smashdown 2024")
 page_bg_img = '''
 <style>
 body {
-background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-image: url("https://img.freepik.com/free-photo/badminton-concept-with-racket-shuttlecock_23-2149940923.jpg");
 background-size: cover;
 }
 </style>
