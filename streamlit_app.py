@@ -19,4 +19,4 @@ selected_category = st.selectbox('Select Category', categories)
 # Display the fixtures for the selected category
 st.header(f"{selected_category}")
 category_df = df[df['Category'] == selected_category]
-st.table(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']])
+st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']],hide_index=True)
