@@ -1,16 +1,19 @@
 import streamlit as st
 
-st.title("Smashdown 2024")
-# Set the background image
-background_image = """
-<style>
-[data-testid="stAppViewContainer"] > .main {
-    background-image: url("https://img.freepik.com/free-photo/badminton-concept-with-racket-shuttlecock_23-2149940923.jpg");
-    background-size: 100vw 300vh;  # This sets the size to cover 100% of the viewport width and height
-    background-position: center;  
-    background-repeat: no-repeat;
-}
-</style>
-"""
+import streamlit as st
+import pandas as pd
 
-st.markdown(background_image, unsafe_allow_html=True)
+# Title of the app
+st.title('Badminton Tournament Fixtures')
+
+# Load the Excel file
+file_path = "fixture.xlsx"
+df = pd.read_excel(file_path)
+
+# Display the data category-wise
+categories = df['Category'].unique()
+
+for category in categories:
+    st.header(f"{category}")
+    category_df = df[df['Category'] == category]
+    st.table(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']])
