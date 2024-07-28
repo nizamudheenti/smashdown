@@ -7,8 +7,8 @@ import pandas as pd
 st.title('Badminton Tournament Fixtures')
 
 # Load the Excel file
-file_path = "fixture.xlsx"
-df = pd.read_excel(file_path)
+file_path = "fixture.csv"
+df = pd.read_csv(file_path)
 
 # Display the data category-wise
 categories = df['Category'].unique()
