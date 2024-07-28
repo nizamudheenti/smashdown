@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(layout="wide")
+st.logo('17898105.png',icon_image='17898105.png')
 # Title of the app
 st.title('Smashdown 2024 - Prevalent AI')
 st.divider()
