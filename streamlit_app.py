@@ -48,6 +48,7 @@ if selected_category=='Fixture':
     if selected_category1 != 'All':
         st.subheader(f"{selected_category1}")
         category_df = df[df['Category'] == selected_category1]
+        st.text(category_df.Names.apply(lambda x:x.split(' VS ')))
         st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         if selected_category1=='Men’s Doubles':
             with st.expander("Groups"):
