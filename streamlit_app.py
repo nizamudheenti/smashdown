@@ -24,9 +24,9 @@ if 'selected_category' not in st.session_state:
 # Create buttons for each category
 if col11.button('Fixture', use_container_width=True):
     st.session_state.selected_category = 'Fixture'
-if col22.button('Tournament Rules', use_container_width=True):
+if col22.button('Results', use_container_width=True):
     st.session_state.selected_category = 'Results'
-if col33.button('Results', use_container_width=True):
+if col33.button('Tournament Rules', use_container_width=True):
     st.session_state.selected_category = 'Tournament Rules'
 
 st.divider()
