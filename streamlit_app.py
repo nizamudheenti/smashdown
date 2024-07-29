@@ -199,7 +199,7 @@ elif st.session_state.selected_category == 'Results':
         mixed_a_data = {
         'Team': ['Bipin M V & Ananthu Sunil','Emmanuel Joseph & Dion Paul George','Laby K Joy & Rakesh S','Gokul A A & Sajith M S'],
         'Matches Played': [0, 0, 0,0],
-        'MatchesWon': [0, 0, 0,0],
+        'Matches Won': [0, 0, 0,0],
         'Matches Lost': [0, 0, 0,0],
         'Points Won': [0, 0, 0,0],
         'Points Lost': [0, 0, 0,0]
