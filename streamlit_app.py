@@ -145,8 +145,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_a_data = {
         'Team': ['Pravitha V Namboothiri & Neeraj Gopan', 'Alan & Sandra Sharon', 'Mohammed Ashiq A & Denila Davis'],
         'Matches Played': [0, 0, 0],
-        'Won': [0, 0, 0],
-        'Lost': [0, 0, 0],
+        'Matches Won': [0, 0, 0],
+        'Matches Lost': [0, 0, 0],
         'Points Won': [0, 0, 0],
         'Points Lost': [0, 0, 0]
         }
@@ -159,8 +159,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_b_data = {
             'Team': ['Pankaj Sherry Paret & Athira K B', 'Catherine Pulickan & Aljo Ajith', 'Vinju & Deepak'],
             'Matches Played': [0, 0, 0],
-            'Won': [0, 0, 0],
-            'Lost': [0, 0, 0],
+            'Matches Won': [0, 0, 0],
+            'Matches Lost': [0, 0, 0],
             'Points Won': [0, 0, 0],
             'Points Lost': [0, 0, 0]
         }
@@ -172,8 +172,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_a_data = {
         'Team': ['Shama Anjoom & Sarah Jacob','Parvathi Ambareesh & Sithara Mohan','Merin Jose & Sneha Achamma Cherian','Cristeena & Amrutha'],
         'Matches Played': [0, 0, 0,0],
-        'Won': [0, 0, 0,0],
-        'Lost': [0, 0, 0,0],
+        'Matches Won': [0, 0, 0,0],
+        'Matches Lost': [0, 0, 0,0],
         'Points Won': [0, 0, 0,0],
         'Points Lost': [0, 0, 0,0]
         }
@@ -186,8 +186,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_b_data = {
             'Team': ['Swetha Shenoy & Ginu George','Amrita Surendran & Deepthi Dinakaran','Pappy A Lakshmi & Arya Suresh','Riya & Ann'],
             'Matches Played': [0, 0, 0,0],
-        'Won': [0, 0, 0,0],
-        'Lost': [0, 0, 0,0],
+        'Matches Won': [0, 0, 0,0],
+        'Matches Lost': [0, 0, 0,0],
         'Points Won': [0, 0, 0,0],
         'Points Lost': [0, 0, 0,0]
         }
@@ -199,8 +199,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_a_data = {
         'Team': ['Bipin M V & Ananthu Sunil','Emmanuel Joseph & Dion Paul George','Laby K Joy & Rakesh S','Gokul A A & Sajith M S'],
         'Matches Played': [0, 0, 0,0],
-        'Won': [0, 0, 0,0],
-        'Lost': [0, 0, 0,0],
+        'MatchesWon': [0, 0, 0,0],
+        'Matches Lost': [0, 0, 0,0],
         'Points Won': [0, 0, 0,0],
         'Points Lost': [0, 0, 0,0]
         }
@@ -213,8 +213,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_b_data = {
             'Team': ['Rakesh P B & Nizamudheen T I','Muhammed Althaf & Sreekumar T H','Harikrishnan & Jeen Michael','Shashi Salian & Akshay CA'],
             'Matches Played': [0, 0, 0,0],
-            'Won': [0, 0, 0,0],
-            'Lost': [0, 0, 0,0],
+            'Matches Won': [0, 0, 0,0],
+            'Matches Lost': [0, 0, 0,0],
             'Points Won': [0, 0, 0,0],
             'Points Lost': [0, 0, 0,0]
         }
@@ -227,8 +227,8 @@ elif st.session_state.selected_category == 'Results':
         mixed_c_data = {
             'Team': ['Jacob George & Muhammed Jazim','Jithin Odattu O C & Neeraj Jayaraj','Anand Balakrishnan & Kumaresan Arumugham','Kiran Joseph & Sidharth Nair','John Thomas & Jubit John'],
             'Matches Played': [0, 0, 0,0,0],
-            'Won': [0, 0, 0,0,0],
-            'Lost': [0, 0, 0,0,0],
+            'Matches Won': [0, 0, 0,0,0],
+            'Matches Lost': [0, 0, 0,0,0],
             'Points Won': [0, 0, 0,0,0],
             'Points Lost': [0, 0, 0,0,0]
         }
