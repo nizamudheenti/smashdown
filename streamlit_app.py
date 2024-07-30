@@ -53,7 +53,6 @@ if st.session_state.selected_category == 'Fixture':
 
     # Display the fixtures for the selected subcategory
     if st.session_state.selected_category1 != 'All':
-        st.subheader(f"{st.session_state.selected_category1}")
         category_df = df[df['Category'] == st.session_state.selected_category1]
         x = category_df['Names'].apply(lambda x: x.split(' VS ')).to_list()
         y = []
@@ -134,17 +133,15 @@ if st.session_state.selected_category == 'Fixture':
                     """
                 )
     else:
-        st.subheader("Full Fixture")
         st.dataframe(df[['Match Number', 'Names', 'Category', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
 elif st.session_state.selected_category == 'Tournament Rules':
-    st.subheader("Tournament Rules")
     st.markdown("""### Match Format
 
 ##### Group Stages
 1. Each team will play against every other team in their group.
 2. Each match will be played for one set only to 21 points.
 
-##### Quarter-Finals, Semi-Finals, and Finals
+#### Quarter-Finals, Semi-Finals, and Finals
 1. Matches will be best of three sets.
 2. Each set will be played to 15 points.
 
