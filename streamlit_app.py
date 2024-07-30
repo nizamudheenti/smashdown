@@ -140,11 +140,11 @@ elif st.session_state.selected_category == 'Tournament Rules':
     st.subheader("Tournament Rules")
     st.markdown("""### Match Format
 
-#### Group Stages
+##### Group Stages
 1. Each team will play against every other team in their group.
 2. Each match will be played for one set only to 21 points.
 
-#### Quarter-Finals, Semi-Finals, and Finals
+##### Quarter-Finals, Semi-Finals, and Finals
 1. Matches will be best of three sets.
 2. Each set will be played to 15 points.
 
