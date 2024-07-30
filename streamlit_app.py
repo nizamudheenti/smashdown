@@ -138,6 +138,76 @@ if st.session_state.selected_category == 'Fixture':
         st.dataframe(df[['Match Number', 'Names', 'Category', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
 elif st.session_state.selected_category == 'Tournament Rules':
     st.subheader("Tournament Rules")
+    st.markdown("""### Match Format
+
+#### Group Stages
+1. Each team will play against every other team in their group.
+2. Each match will be played for one set only to 21 points.
+
+#### Quarter-Finals, Semi-Finals, and Finals
+1. Matches will be best of three sets.
+2. Each set will be played to 15 points.
+
+#### General
+1. Each match will begin promptly at the scheduled time.
+2. Teams must be present and ready to play at least 20 minutes before the match start time. Otherwise, it would be considered a walkover.
+3. Standard badminton rules apply unless otherwise stated.
+4. All players are expected to exhibit good sportsmanship.
+
+#### Safety
+1. Players should wear appropriate sports attire and footwear.
+2. Any injuries should be reported immediately to the tournament organizer.
+
+#### Scoring System
+1. Rally scoring will be used (a point is scored on every serve, regardless of which team served).
+2. In the event of a tie at the end of a match, the first team to lead by 2 points wins.
+3. After 30 sudden death.
+
+#### Service Rules
+1. Service will be decided by a coin toss.
+2. Serve must be made underhand, and the shuttle must be hit below the waist.
+3. Excessive or exaggerated movements will be considered illegal or disruptive to the opponent’s readiness.
+
+#### Qualification for Quarter-Finals and Semi-Finals
+
+##### Womens and Mixed
+1. There are 2 groups.
+2. The top 4 teams from each group will advance to the semi-finals.
+
+##### Mens
+1. Top 2 teams from each group qualify for quarters (Total 6 teams).
+2. Remaining 2 teams are promoted based on their total scores in the group stage.
+3. Teams with the highest total scores are promoted to the quarter-finals automatically.
+4. Normalization is applied to remaining 2 teams if scores are the same.
+
+##### Normalizing Purpose
+To fairly compare teams across different groups by adjusting scores based on group performance.
+
+**Method**:
+                Normalized Score = (Points Scored - Points Conceded) / Total Matches Played
+
+**Example**:
+- **Team A**:
+  - Points Scored: 210
+  - Points Conceded: 180
+  - Matches Played: 10
+  - Normalized Score for Team A = (210 - 180) / 10 = 30 / 10 = 3
+- **Team B**:
+  - Points Scored: 200
+  - Points Conceded: 190
+  - Matches Played: 10
+  - Normalized Score for Team B = (200 - 190) / 10 = 10 / 10 = 1
+
+After calculating the normalized scores, teams with the highest normalized scores will be selected to advance. In this example, Team A has the highest normalized score of 3, so Team A would be the additional team selected for the semi-finals.
+
+If teams have equal normalized scores after applying the normalization method, then we will use tie breaker criteria:
+1. **Head-to-Head Result**: Compare the results of the matches played between the tied teams. The team with the better head-to-head record advances.
+2. **Points Difference**: Calculate the difference between points scored and points conceded for each team. The team with the higher points difference advances.
+3. **Points Scored**: Compare the total points scored by each team. The team with the higher total points scored advances.
+4. **Lowest Points Conceded**: Compare the total points conceded by each team. The team with the lowest total points conceded advances.
+5. **Fair Play Record**: If all other criteria fail to break the tie, use a fair play record (e.g., fewer fouls, warnings, or penalties).
+
+""")
 elif st.session_state.selected_category == 'Results':
     st.subheader("Results")
     tab1, tab2, tab3 = st.tabs(["Mixed Doubles", "Women's Doubles", "Men's Doubles"])
