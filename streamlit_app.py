@@ -9,10 +9,10 @@ st.header('SMASHDOWN 2024 - PAI')
 st.divider()
 
 # Load the CSV file
-file_path = "/csv/fixture.csv"
+file_path = "csv/fixture.csv"
 df = pd.read_csv(file_path)
 
-knockout = pd.read_csv("/csv/knockout.csv")
+knockout = pd.read_csv("csv/knockout.csv")
 
 columns = ['Fixture', 'Tournament Rules', 'Results']
 
