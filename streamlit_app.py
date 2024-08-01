@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="PAI-SMASHDOWN", layout="wide", page_icon="🏸")
-st.logo('/csv/17898105.png', icon_image='/csv/17898105.png', link='https://smashdown.streamlit.app/')
+st.logo('csv/17898105.png', icon_image='csv/17898105.png', link='https://smashdown.streamlit.app/')
 
 # Title of the app
 st.header('SMASHDOWN 2024 - PAI')
