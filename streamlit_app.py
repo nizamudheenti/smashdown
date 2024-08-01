@@ -12,6 +12,8 @@ st.divider()
 file_path = "fixture.csv"
 df = pd.read_csv(file_path)
 
+knockout = pd.read_csv("knockout.csv")
+
 columns = ['Fixture', 'Tournament Rules', 'Results']
 
 # Create three columns for the buttons
@@ -61,6 +63,9 @@ if st.session_state.selected_category == 'Fixture':
         del x
         filter = st.selectbox("Filter", ['All']+list(set(y)))
         if filter=='All':
+            st.write("")
+            st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
+            st.markdown("##### Group Stage")
             st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         else:
             st.dataframe(category_df[category_df['Names'].str.contains(filter)][['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
@@ -94,6 +99,8 @@ if st.session_state.selected_category == 'Fixture':
                     - John Thomas & Jubit John
                     """
                 )
+            st.markdown("##### Knock Out")
+            st.dataframe(knockout[knockout['Category']=='Men’s Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         if st.session_state.selected_category1 == 'Women’s Doubles':
             with st.expander("Groups"):
                 co1, co2 = st.columns(2)
@@ -114,6 +121,8 @@ if st.session_state.selected_category == 'Fixture':
                     - Riya & Ann
                     """
                 )
+            st.markdown("##### Knock Out")
+            st.dataframe(knockout[knockout['Category']=='Women’s Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         if st.session_state.selected_category1 == 'Mixed Doubles':
             with st.expander("Groups"):
                 co1, co2 = st.columns(2)
@@ -132,8 +141,15 @@ if st.session_state.selected_category == 'Fixture':
                     - Vinju & Deepak
                     """
                 )
+            st.markdown("##### Knock Out")
+            st.dataframe(knockout[knockout['Category']=='Mixed Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
     else:
+        st.write("")
+        st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
+        st.markdown("##### Group Stage")
         st.dataframe(df[['Match Number', 'Names', 'Category', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
+        st.markdown("##### Knock Out")
+        st.dataframe(knockout[['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
 elif st.session_state.selected_category == 'Tournament Rules':
     st.markdown("""### Match Format
 
