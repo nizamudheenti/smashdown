@@ -2,17 +2,17 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="PAI-SMASHDOWN", layout="wide", page_icon="🏸")
-st.logo('17898105.png', icon_image='17898105.png', link='https://smashdown.streamlit.app/')
+st.logo('17898105.png', icon_image='data/17898105.png', link='https://smashdown.streamlit.app/')
 
 # Title of the app
 st.header('SMASHDOWN 2024 - PAI')
 st.divider()
 
 # Load the CSV file
-file_path = "fixture.csv"
+file_path = "data/fixture.csv"
 df = pd.read_csv(file_path)
 
-knockout = pd.read_csv("knockout.csv")
+knockout = pd.read_csv("data/knockout.csv")
 
 columns = ['Fixture', 'Tournament Rules', 'Results']
 
