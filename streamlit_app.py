@@ -55,6 +55,9 @@ if st.session_state.selected_category == 'Fixture':
 
     # Display the fixtures for the selected subcategory
     if st.session_state.selected_category1 != 'All':
+        st.write("")
+        st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
+        st.markdown("##### Group Stage")
         category_df = df[df['Category'] == st.session_state.selected_category1]
         x = category_df['Names'].apply(lambda x: x.split(' VS ')).to_list()
         y = []
@@ -63,9 +66,6 @@ if st.session_state.selected_category == 'Fixture':
         del x
         filter = st.selectbox("Filter", ['All']+list(set(y)))
         if filter=='All':
-            st.write("")
-            st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
-            st.markdown("##### Group Stage")
             st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         else:
             st.dataframe(category_df[category_df['Names'].str.contains(filter)][['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
