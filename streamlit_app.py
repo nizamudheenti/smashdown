@@ -100,7 +100,7 @@ if st.session_state.selected_category == 'Fixture':
                     """
                 )
             st.markdown("##### Knock Out")
-            st.dataframe(knockout[knockout['Category']=='Men’s Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
+            st.dataframe(knockout[knockout['Category']=="Men's Doubles"][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         if st.session_state.selected_category1 == 'Women’s Doubles':
             with st.expander("Groups"):
                 co1, co2 = st.columns(2)
@@ -122,7 +122,7 @@ if st.session_state.selected_category == 'Fixture':
                     """
                 )
             st.markdown("##### Knock Out")
-            st.dataframe(knockout[knockout['Category']=='Women’s Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
+            st.dataframe(knockout[knockout['Category']=="Women's Doubles"][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
         if st.session_state.selected_category1 == 'Mixed Doubles':
             with st.expander("Groups"):
                 co1, co2 = st.columns(2)
