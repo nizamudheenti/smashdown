@@ -4,6 +4,30 @@ import pandas as pd
 st.set_page_config(page_title="PAI-SMASHDOWN", layout="wide", page_icon="🏸")
 st.logo('csv/17898105.png', icon_image='csv/17898105.png', link='https://smashdown.streamlit.app/')
 
+def load_data():
+    return (pd.read_csv("csv/mixed_a.csv"),
+            pd.read_csv("csv/mixed_b.csv"),
+            pd.read_csv("csv/men_a.csv"),
+            pd.read_csv("csv/men_b.csv"),
+            pd.read_csv("csv/men_c.csv"),
+            pd.read_csv("csv/women_a.csv"),
+            pd.read_csv("csv/women_b.csv"))
+
+def sort_badminton_data(data):
+    # Assuming 'data' is provided as a dictionary or can be converted to a DataFrame
+    df = pd.DataFrame(data)
+    
+    # Convert numeric columns to integers
+    df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']] = df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']].astype(int)
+    
+    # Calculate difference between points won and points lost
+    df['Points Difference'] = df['Points Won'] - df['Points Lost']
+    
+    # Sort dataframe first by Matches Won descending, then by Points Difference descending
+    sorted_df = df.sort_values(by=['Matches Won', 'Points Difference'], ascending=[False, False]).reset_index(drop=True)
+    
+    return sorted_df
+
 # Title of the app
 st.header('SMASHDOWN 2024 - PAI')
 st.divider()
@@ -11,6 +35,7 @@ st.divider()
 # Load the CSV file
 file_path = "csv/fixture.csv"
 df = pd.read_csv(file_path)
+mixed_a,mixed_b,men_a,men_b,men_c,women_a,women_b=load_data()
 
 knockout = pd.read_csv("csv/knockout.csv")
 
@@ -225,97 +250,38 @@ elif st.session_state.selected_category == 'Results':
     st.subheader("Results")
     tab1, tab2, tab3 = st.tabs(["Mixed Doubles", "Women's Doubles", "Men's Doubles"])
     with tab1:
-        mixed_a_data = {
-        'Team': ['Pravitha V Namboothiri & Neeraj Gopan', 'Alan & Sandra Sharon', 'Mohammed Ashiq A & Denila Davis'],
-        'Matches Played': [0, 0, 0],
-        'Matches Won': [0, 0, 0],
-        'Matches Lost': [0, 0, 0],
-        'Points Won': [0, 0, 0],
-        'Points Lost': [0, 0, 0]
-        }
 
         # Create DataFrame for Mixed A
         st.caption('Mixed A')
-        st.dataframe(pd.DataFrame(mixed_a_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(mixed_a), hide_index=True, use_container_width=True)
 
         # Define the data for Mixed B
-        mixed_b_data = {
-            'Team': ['Pankaj Sherry Paret & Athira K B', 'Catherine Pulickan & Aljo Ajith', 'Vinju & Deepak'],
-            'Matches Played': [0, 0, 0],
-            'Matches Won': [0, 0, 0],
-            'Matches Lost': [0, 0, 0],
-            'Points Won': [0, 0, 0],
-            'Points Lost': [0, 0, 0]
-        }
 
         # Create DataFrame for Mixed B
         st.caption('Mixed B')
-        st.dataframe(pd.DataFrame(mixed_b_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(mixed_b), hide_index=True, use_container_width=True)
     with tab2:
-        mixed_a_data = {
-        'Team': ['Shama Anjoom & Sarah Jacob','Parvathi Ambareesh & Sithara Mohan','Merin Jose & Sneha Achamma Cherian','Cristeena & Amrutha'],
-        'Matches Played': [0, 0, 0,0],
-        'Matches Won': [0, 0, 0,0],
-        'Matches Lost': [0, 0, 0,0],
-        'Points Won': [0, 0, 0,0],
-        'Points Lost': [0, 0, 0,0]
-        }
 
         # Create DataFrame for Mixed A
         st.caption('Women A')
-        st.dataframe(pd.DataFrame(mixed_a_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(women_a), hide_index=True, use_container_width=True)
 
         # Define the data for Mixed B
-        mixed_b_data = {
-            'Team': ['Swetha Shenoy & Ginu George','Amrita Surendran & Deepthi Dinakaran','Pappy A Lakshmi & Arya Suresh','Riya & Ann'],
-            'Matches Played': [0, 0, 0,0],
-        'Matches Won': [0, 0, 0,0],
-        'Matches Lost': [0, 0, 0,0],
-        'Points Won': [0, 0, 0,0],
-        'Points Lost': [0, 0, 0,0]
-        }
-
         # Create DataFrame for Mixed B
         st.caption('Women B')
-        st.dataframe(pd.DataFrame(mixed_b_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(women_b), hide_index=True, use_container_width=True)
     with tab3:
-        mixed_a_data = {
-        'Team': ['Bipin M V & Ananthu Sunil','Emmanuel Joseph & Dion Paul George','Laby K Joy & Rakesh S','Gokul A A & Sajith M S'],
-        'Matches Played': [0, 0, 0,0],
-        'Matches Won': [0, 0, 0,0],
-        'Matches Lost': [0, 0, 0,0],
-        'Points Won': [0, 0, 0,0],
-        'Points Lost': [0, 0, 0,0]
-        }
-
         # Create DataFrame for Mixed A
         st.caption('Men A')
-        st.dataframe(pd.DataFrame(mixed_a_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(men_a), hide_index=True, use_container_width=True)
 
         # Define the data for Mixed B
-        mixed_b_data = {
-            'Team': ['Rakesh P B & Nizamudheen T I','Muhammed Althaf & Sreekumar T H','Harikrishnan & Jeen Michael','Shashi Salian & Akshay CA'],
-            'Matches Played': [0, 0, 0,0],
-            'Matches Won': [0, 0, 0,0],
-            'Matches Lost': [0, 0, 0,0],
-            'Points Won': [0, 0, 0,0],
-            'Points Lost': [0, 0, 0,0]
-        }
 
         # Create DataFrame for Mixed B
         st.caption('Men B')
-        st.dataframe(pd.DataFrame(mixed_b_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(men_b), hide_index=True, use_container_width=True)
 
         # Define the data for Mixed B
-        mixed_c_data = {
-            'Team': ['Jacob George & Muhammed Jazim','Jithin Odattu O C & Neeraj Jayaraj','Anand Balakrishnan & Kumaresan Arumugham','Kiran Joseph & Sidharth Nair','John Thomas & Jubit John'],
-            'Matches Played': [0, 0, 0,0,0],
-            'Matches Won': [0, 0, 0,0,0],
-            'Matches Lost': [0, 0, 0,0,0],
-            'Points Won': [0, 0, 0,0,0],
-            'Points Lost': [0, 0, 0,0,0]
-        }
-
         # Create DataFrame for Mixed B
         st.caption('Men C')
-        st.dataframe(pd.DataFrame(mixed_c_data), hide_index=True, use_container_width=True)
+        st.dataframe(sort_badminton_data(men_c), hide_index=True, use_container_width=True)
