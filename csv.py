@@ -3,13 +3,13 @@ import pandas as pd
 st.set_page_config(page_title="PAI-SMASHDOWN", layout="wide", page_icon="🏸")
 # Load CSV
 def load_data():
-    return (pd.read_csv("C:/Users/NIZAM/OneDrive/Documents/GitHub/smashdown/csv/mixed_a.csv"),
-            pd.read_csv("C:/Users/NIZAM/OneDrive/Documents/GitHub/smashdown/csv/mixed_b.csv"))
+    return (pd.read_csv("C:/Users/nizamudheen.ti/OneDrive - prevalent.ai/Documents/GitHub/smashdown/csv/mixed_a.csv"),
+            pd.read_csv("C:/Users/nizamudheen.ti/OneDrive - prevalent.ai/Documents/GitHub/smashdown/csv/mixed_b.csv"))
 
 # Save CSV
 def save_data(mixed_a,mixed_b):
-    return(mixed_a.to_csv("C:/Users/NIZAM/OneDrive/Documents/GitHub/smashdown/csv/mixed_a.csv", index=False),
-           mixed_b.to_csv("C:/Users/NIZAM/OneDrive/Documents/GitHub/smashdown/csv/mixed_b.csv", index=False))
+    return(mixed_a.to_csv("C:/Users/nizamudheen.ti/OneDrive - prevalent.ai/Documents/GitHub/smashdown/csv/mixed_a.csv", index=False),
+           mixed_b.to_csv("C:/Users/nizamudheen.ti/OneDrive - prevalent.ai/Documents/GitHub/smashdown/csv/mixed_b.csv", index=False))
 
 # Main function to create the Streamlit app
 def main():
