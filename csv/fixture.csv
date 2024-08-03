@@ -1,18 +1,18 @@
 ,Match Number,Names,Group,Category,Court Number,Time,Team 1 Score,Team 2 Score,Won By
-0,1,Pravitha V Namboothiri - Neeraj Gopan VS Mohammed Ashiq A - Denila Davis,Mixed A,Mixed Doubles,1,10:00 AM - AUG 3,0.0,0.0,
-1,2,Anand Balakrishnan - Kumaresan Arumugham VS John Thomas - Jubit John,Men C,Men’s Doubles,2,10:00 AM - AUG 3,0.0,,
-2,3,Swetha Shenoy - Ginu George VS Amrita Surendran - Deepthi Dinakaran,Women B,Women’s Doubles,3,10:00 AM - AUG 3,0.0,,
-3,4,Pankaj Sherry Paret - Athira K B VS Catherine Pulickan - Aljo Ajith,Mixed B,Mixed Doubles,1,10:25 AM - AUG 3,0.0,,
-4,5,Bipin M V - Ananthu Sunil VS Emmanuel Joseph - Dion Paul George,Men A,Men’s Doubles,2,10:25 AM - AUG 3,0.0,,
-5,6,Rakesh P B - Nizamudheen T I VS Muhammed Althaf - Sreekumar T H,Men B,Men’s Doubles,3,10:25 AM - AUG 3,0.0,,
-6,7,Jacob George - Muhammed Jazim VS Anand Balakrishnan - Kumaresan Arumugham,Men C,Men’s Doubles,1,10:50 AM - AUG 3,0.0,,
-7,8,Jithin Odattu O C - Neeraj Jayaraj VS Kiran Joseph - Sidharth Nair,Men C,Men’s Doubles,2,10:50 AM - AUG 3,0.0,,
-8,9,Harikrishnan - Jeen Michael VS Shashi Salian - Akshay CA,Men B,Men’s Doubles,3,10:50 AM - AUG 3,,,
-9,10,Pravitha V Namboothiri - Neeraj Gopan VS Alan - Sandra Sharon,Mixed A,Mixed Doubles,1,11:15 AM - AUG 3,,,
-10,11,Merin Jose - Sneha Achamma Cherian VS Cristeena - Amrutha,Women A,Women’s Doubles,2,11:15 AM - AUG 3,,,
+0,1,Pravitha V Namboothiri - Neeraj Gopan VS Mohammed Ashiq A - Denila Davis,Mixed A,Mixed Doubles,1,10:00 AM - AUG 3,21.0,18.0,1.0
+1,2,Anand Balakrishnan - Kumaresan Arumugham VS John Thomas - Jubit John,Men C,Men’s Doubles,2,10:00 AM - AUG 3,6.0,21.0,2.0
+2,3,Swetha Shenoy - Ginu George VS Amrita Surendran - Deepthi Dinakaran,Women B,Women’s Doubles,3,10:00 AM - AUG 3,21.0,9.0,1.0
+3,4,Pankaj Sherry Paret - Athira K B VS Catherine Pulickan - Aljo Ajith,Mixed B,Mixed Doubles,1,10:25 AM - AUG 3,10.0,21.0,2.0
+4,5,Bipin M V - Ananthu Sunil VS Emmanuel Joseph - Dion Paul George,Men A,Men’s Doubles,2,10:25 AM - AUG 3,11.0,21.0,2.0
+5,6,Rakesh P B - Nizamudheen T I VS Muhammed Althaf - Sreekumar T H,Men B,Men’s Doubles,3,10:25 AM - AUG 3,21.0,9.0,1.0
+6,7,Jacob George - Muhammed Jazim VS Anand Balakrishnan - Kumaresan Arumugham,Men C,Men’s Doubles,1,10:50 AM - AUG 3,21.0,9.0,1.0
+7,8,Jithin Odattu O C - Neeraj Jayaraj VS Kiran Joseph - Sidharth Nair,Men C,Men’s Doubles,2,10:50 AM - AUG 3,21.0,3.0,1.0
+8,9,Harikrishnan - Jeen Michael VS Shashi Salian - Akshay CA,Men B,Men’s Doubles,3,10:50 AM - AUG 3,22.0,20.0,1.0
+9,10,Pravitha V Namboothiri - Neeraj Gopan VS Alan - Sandra Sharon,Mixed A,Mixed Doubles,1,11:15 AM - AUG 3,21.0,19.0,1.0
+10,11,Merin Jose - Sneha Achamma Cherian VS Cristeena - Amrutha,Women A,Women’s Doubles,2,11:15 AM - AUG 3,16.0,21.0,2.0
 11,12,Amrita Surendran - Deepthi Dinakaran VS Pappy A Lakshmi - Arya Suresh,Women B,Women’s Doubles,3,11:15 AM - AUG 3,,,
-12,13,Emmanuel Joseph - Dion Paul George VS Laby K Joy - Rakesh S,Men A,Men’s Doubles,1,11:40 AM - AUG 3,,,
-13,14,Muhammed Althaf - Sreekumar T H VS Harikrishnan - Jeen Michael,Men B,Men’s Doubles,2,11:40 AM - AUG 3,,,
+12,13,Emmanuel Joseph - Dion Paul George VS Laby K Joy - Rakesh S,Men A,Men’s Doubles,1,11:40 AM - AUG 3,21.0,8.0,1.0
+13,14,Muhammed Althaf - Sreekumar T H VS Harikrishnan - Jeen Michael,Men B,Men’s Doubles,2,11:40 AM - AUG 3,6.0,21.0,2.0
 14,15,Shama Anjoom - Sarah Jacob VS Parvathi Ambareesh - Sithara Mohan,Women A,Women’s Doubles,3,11:40 AM - AUG 3,,,
 15,16,Jithin Odattu O C - Neeraj Jayaraj VS John Thomas - Jubit John,Men C,Men’s Doubles,1,12:05 PM - AUG 3,,,
 16,17,Riya - Ann VS Amrita Surendran - Deepthi Dinakaran,Women B,Women’s Doubles,2,12:05 PM - AUG 3,,,
@@ -25,7 +25,7 @@
 23,24,Parvathi Ambareesh - Sithara Mohan VS Cristeena - Amrutha,Women A,Women’s Doubles,3,12:55 PM - AUG 3,,,
 24,25,Emmanuel Joseph - Dion Paul George VS Gokul A A - Sajith M S,Men A,Men’s Doubles,1,3:00 PM - AUG 3,,,
 25,26,Alan - Sandra Sharon VS Mohammed Ashiq A - Denila Davis,Mixed A,Mixed Doubles,2,3:00 PM - AUG 3,,,
-26,27,Swetha Shenoy - Ginu George VS Riya - Ann,Women B,Women’s Doubles,3,3:00 PM - AUG 3,,,
+26,27,Swetha Shenoy - Ginu George VS Riya - Ann,Women B,Women’s Doubles,3,3:00 PM - AUG 3,21.0,7.0,1.0
 27,28,Pankaj Sherry Paret - Athira K B VS Vinju - Deepak,Mixed B,Mixed Doubles,1,3:25 PM - AUG 3,,,
 28,29,Parvathi Ambareesh - Sithara Mohan VS Merin Jose - Sneha Achamma Cherian,Women A,Women’s Doubles,2,3:25 PM - AUG 3,,,
 29,30,Muhammed Althaf - Sreekumar T H VS Shashi Salian - Akshay CA,Men B,Men’s Doubles,3,3:25 PM - AUG 3,,,
