@@ -1,4 +1,3 @@
-# SMASHDOWN 2024
+# PAI Premier League 
 
-PAI BADMINTON TOURNAMENT 2024
-
+Season 1
