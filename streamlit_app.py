@@ -1,186 +1,161 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="PAI-SMASHDOWN", layout="wide", page_icon="🏸")
-st.logo('csv/17898105.png', icon_image='csv/17898105.png', link='https://smashdown.streamlit.app/')
+# App config
+st.set_page_config(page_title="PAI Premier League", layout="wide", page_icon="🏆")
 
-def load_data():
-    return (pd.read_csv("csv/mixed_a.csv"),
-            pd.read_csv("csv/mixed_b.csv"),
-            pd.read_csv("csv/men_a.csv"),
-            pd.read_csv("csv/men_b.csv"),
-            pd.read_csv("csv/men_c.csv"),
-            pd.read_csv("csv/women_a.csv"),
-            pd.read_csv("csv/women_b.csv"))
+# Session state initialization
+def init_state(sport):
+    for section in ["fixtures", "rules", "results"]:
+        key = f"{sport}_{section}"
+        if key not in st.session_state:
+            st.session_state[key] = False
 
+# Show section buttons with full width
+def show_buttons(sport):
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        if st.button("📅 Fixtures", key=f"{sport}_btn_fixtures", use_container_width=True):
+            reset_sections(sport)
+            st.session_state[f"{sport}_fixtures"] = True
+    with col2:
+        if st.button("📜 Rules", key=f"{sport}_btn_rules", use_container_width=True):
+            reset_sections(sport)
+            st.session_state[f"{sport}_rules"] = True
+    with col3:
+        if st.button("📊 Results", key=f"{sport}_btn_results", use_container_width=True):
+            reset_sections(sport)
+            st.session_state[f"{sport}_results"] = True
+
+# Reset section states
+def reset_sections(sport):
+    st.session_state[f"{sport}_fixtures"] = False
+    st.session_state[f"{sport}_rules"] = False
+    st.session_state[f"{sport}_results"] = False
+
+# Format the badminton fixtures from the provided data
+def format_badminton_fixtures(df):
+    # Make sure df is properly formatted for display
+    return df[["Category", "Group", "Team 1", "Team 2"]]
+
+# Sort Badminton results (will be used when results data is available)
 def sort_badminton_data(data):
-    # Assuming 'data' is provided as a dictionary or can be converted to a DataFrame
-    df = pd.DataFrame(data)
-    
-    # Convert numeric columns to integers
-    df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']] = df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']].astype(int)
-    
-    # Calculate difference between points won and points lost
-    df['Points Difference'] = df['Points Won'] - df['Points Lost']
-    
-    # Sort dataframe first by Matches Won descending, then by Points Difference descending
-    sorted_df = df.sort_values(by=['Matches Won', 'Points Difference'], ascending=[False, False]).reset_index(drop=True)
-    
-    return sorted_df
+    try:
+        df = pd.DataFrame(data)
+        if 'Matches Played' in df.columns:
+            df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']] = \
+                df[['Matches Played', 'Matches Won', 'Matches Lost', 'Points Won', 'Points Lost']].astype(int)
+            df['Points Difference'] = df['Points Won'] - df['Points Lost']
+            return df.sort_values(by=['Matches Won', 'Points Difference'], ascending=[False, False]).reset_index(drop=True)
+        return df
+    except Exception as e:
+        st.error(f"Error formatting results data: {e}")
+        return pd.DataFrame()
 
-# Title of the app
-st.header('SMASHDOWN 2024 - PAI')
-st.divider()
+# Main Title
+st.title("Prevalent AI Premier League")
+st.markdown("""##### 7 Sports · 4 Teams · May & June 2025""")
+st.markdown("---")
 
-# Load the CSV file
-file_path = "csv/fixture.csv"
-df = pd.read_csv(file_path)
-mixed_a,mixed_b,men_a,men_b,men_c,women_a,women_b=load_data()
+# Add the images of participating teams in a 4-column layout with resized logos
+col1, col2, col3, col4 ,col5= st.columns(5)
 
-knockout = pd.read_csv("csv/knockout.csv")
+# Display images of the teams (ensure the images are resized for better alignment)
+with col3:
+    st.image("images/logos.png", caption="Teams",width=400)
 
-columns = ['Fixture', 'Tournament Rules', 'Results']
+# Tabs for different sports
+tabs = st.tabs(["🏸 Badminton", "🏏 Cricket", "⚽ Football", "🏓 Table Tennis", "🎯 Carroms","⛹️ Basket Ball","🏐 Volley Ball"])
 
-# Create three columns for the buttons
-col11, col22, col33 = st.columns(3)
+# ---------- BADMINTON TAB ----------
+with tabs[0]:
+    sport = "badminton"
+    init_state(sport)
+    st.header("🏸 Badminton")
+    show_buttons(sport)
 
-# Initialize a variable to store the selected category
-if 'selected_category' not in st.session_state:
-    st.session_state.selected_category = 'Fixture'
-
-# Create buttons for each category
-if col11.button('Fixture', use_container_width=True):
-    st.session_state.selected_category = 'Fixture'
-if col22.button('Results', use_container_width=True):
-    st.session_state.selected_category = 'Results'
-if col33.button('Tournament Rules', use_container_width=True):
-    st.session_state.selected_category = 'Tournament Rules'
-
-st.divider()
-
-# Extract unique categories for the buttons
-categories = df['Category'].unique()
-
-if st.session_state.selected_category == 'Fixture':
-    # Create four columns for the buttons
-    col1, col2, col3, col4 = st.columns(4)
-    # Initialize a variable to store the selected subcategory
-    if 'selected_category1' not in st.session_state:
-        st.session_state.selected_category1 = 'All'
-
-    # Create buttons for each subcategory
-    if col1.button('All', use_container_width=True):
-        st.session_state.selected_category1 = 'All'
-    if col2.button('Mixed Doubles', use_container_width=True):
-        st.session_state.selected_category1 = 'Mixed Doubles'
-    if col3.button('Women’s Doubles', use_container_width=True):
-        st.session_state.selected_category1 = 'Women’s Doubles'
-    if col4.button('Men’s Doubles', use_container_width=True):
-        st.session_state.selected_category1 = 'Men’s Doubles'
-
-    # Display the fixtures for the selected subcategory
-    if st.session_state.selected_category1 != 'All':
-        st.write("")
-        st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
-        st.markdown("##### Group Stage")
-        category_df = df[df['Category'] == st.session_state.selected_category1]
-        x = category_df['Names'].apply(lambda x: x.split(' VS ')).to_list()
-        y = []
-        for i in range(len(x)):
-            y = y + x[i]
-        del x
-        filter = st.selectbox("Filter", ['All']+list(set(y)))
-        if filter=='All':
-            st.dataframe(category_df[['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-        else:
-            st.dataframe(category_df[category_df['Names'].str.contains(filter)][['Match Number', 'Names', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-        if st.session_state.selected_category1 == 'Men’s Doubles':
-            with st.expander("Groups"):
-                co1, co2, co3 = st.columns(3)
-                co1.markdown(
-                    """
-                    Men A
-                    - Bipin M V & Ananthu Sunil
-                    - Emmanuel Joseph & Dion Paul George
-                    - Laby K Joy & Rakesh S
-                    - Gokul A A & Sajith M S"""
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        
+        try:
+            # Read the fixture data from the CSV file
+            df_fixtures = pd.read_csv("csv/group_stage_matches_latest.csv")
+            
+            # Get unique categories for selection
+            categories = df_fixtures["Category"].unique().tolist()
+            selected_cat = st.selectbox("Select Category", categories)
+            
+            # Filter and show the fixtures for the selected category
+            filtered_fixtures = df_fixtures[df_fixtures["Category"] == selected_cat]
+            
+            # Display Group Summary
+            st.subheader("Group Summary")
+            
+            # Get unique groups for this category
+            groups = filtered_fixtures["Group"].unique().tolist()
+            
+            # Create a dictionary to map groups to teams
+            group_teams = {}
+            for group in groups:
+                group_data = filtered_fixtures[filtered_fixtures["Group"] == group]
+                teams = set(group_data["Team 1"].tolist() + group_data["Team 2"].tolist())
+                group_teams[group] = sorted(list(teams))
+            
+            # Display groups and teams
+            cols = st.columns(len(groups))
+            for i, (group, teams) in enumerate(group_teams.items()):
+                with cols[i % len(cols)]:
+                    st.markdown(f"**{group}**")
+                    for team in teams:
+                        st.markdown(f"- {team}")
+            
+            st.markdown("---")
+            
+            # Filter out matches with scores (already played)
+            upcoming_fixtures = filtered_fixtures[pd.isna(filtered_fixtures['Team 1 Score'])]
+            played_fixtures = filtered_fixtures[pd.notna(filtered_fixtures['Team 1 Score'])]
+            
+            # Display upcoming fixtures
+            if not upcoming_fixtures.empty:
+                st.subheader("Upcoming Matches")
+                st.dataframe(
+                    upcoming_fixtures[["Group", "Team 1", "Team 2"]], 
+                    use_container_width=True
                 )
-                co2.markdown(
-                    """
-                    Men B
-                    - Rakesh P B & Nizamudheen T I
-                    - Muhammed Althaf & Sreekumar T H
-                    - Harikrishnan & Jeen Michael
-                    - Shashi Salian & Akshay CA
-                    """
+            else:
+                st.info("No upcoming fixtures found for this category.")
+                
+            # Display played fixtures
+            if not played_fixtures.empty:
+                st.subheader("Completed Matches")
+                st.dataframe(
+                    played_fixtures[["Group", "Team 1", "Team 1 Score", "Team 2 Score", "Team 2"]], 
+                    use_container_width=True
                 )
-                co3.markdown(
-                    """
-                    Men C
-                    - Jacob George & Muhammed Jazim
-                    - Jithin Odattu O C & Neeraj Jayaraj
-                    - Anand Balakrishnan & Kumaresan Arumugham
-                    - Kiran Joseph & Sidharth Nair
-                    - John Thomas & Jubit John
-                    """
-                )
-            st.markdown("##### Knock Out")
-            st.dataframe(knockout[knockout['Category']=="Men's Doubles"][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-        if st.session_state.selected_category1 == 'Women’s Doubles':
-            with st.expander("Groups"):
-                co1, co2 = st.columns(2)
-                co1.markdown(
-                    """
-                    Women A
-                    - Shama Anjoom & Sarah Jacob
-                    - Parvathi Ambareesh & Sithara Mohan
-                    - Merin Jose & Sneha Achamma Cherian
-                    - Cristeena & Amrutha"""
-                )
-                co2.markdown(
-                    """
-                    Women B
-                    - Swetha Shenoy & Ginu George
-                    - Amrita Surendran & Deepthi Dinakaran
-                    - Pappy A Lakshmi & Arya Suresh
-                    - Riya & Ann
-                    """
-                )
-            st.markdown("##### Knock Out")
-            st.dataframe(knockout[knockout['Category']=="Women's Doubles"][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-        if st.session_state.selected_category1 == 'Mixed Doubles':
-            with st.expander("Groups"):
-                co1, co2 = st.columns(2)
-                co1.markdown(
-                    """
-                    Mixed A
-                    - Pravitha V Namboothiri & Neeraj Gopan
-                    - Alan & Sandra Sharon
-                    - Mohammed Ashiq A & Denila Davis"""
-                )
-                co2.markdown(
-                    """
-                    Mixed B
-                    - Pankaj Sherry Paret & Athira K B
-                    - Catherine Pulickan & Aljo Ajith
-                    - Vinju & Deepak
-                    """
-                )
-            st.markdown("##### Knock Out")
-            st.dataframe(knockout[knockout['Category']=='Mixed Doubles'][['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-    else:
-        st.write("")
-        st.markdown("* Teams must be present and ready to play at least 30 minutes before the match start time. Otherwise, it would be considered a walkover.")
-        st.markdown("##### Group Stage")
-        st.dataframe(df[['Match Number', 'Names', 'Category', 'Group', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-        st.markdown("##### Knock Out")
-        st.dataframe(knockout[['Match Number', 'Names', 'Match', 'Court Number', 'Time']], hide_index=True, use_container_width=True)
-elif st.session_state.selected_category == 'Tournament Rules':
-    st.markdown("""### Match Format
+        except Exception as e:
+            st.error(f"Error loading fixtures: {e}")
+            st.info("Please ensure 'group_stage_matches_latest.csv' is in the app directory with proper formatting.")
 
-##### Group Stages
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("""#### Badminton Tournament Rules
+
+#### Group Stages
 1. Each team will play against every other team in their group.
 2. Each match will be played for one set only to 21 points.
+
+#### Qualification for Knockout Stages
+##### Men's Division
+1. There are 4 groups in the men's division.
+2. The top 2 teams from each group will advance to the quarter-finals.
+
+##### Women's Division
+1. There are 2 groups in the women's division.
+2. The top 4 teams from each group will advance to the quarter-finals.
+
+##### Mixed Division
+1. There are 2 groups in the mixed division.
+2. The top 4 teams from each group will advance to the quarter-finals.
 
 #### Quarter-Finals, Semi-Finals, and Finals
 1. Matches will be best of three sets.
@@ -199,89 +174,314 @@ elif st.session_state.selected_category == 'Tournament Rules':
 #### Scoring System
 1. Rally scoring will be used (a point is scored on every serve, regardless of which team served).
 2. In the event of a tie at the end of a match, the first team to lead by 2 points wins.
-3. After 30 sudden death.
+3. After 30 points, sudden death applies.
 
 #### Service Rules
 1. Service will be decided by a coin toss.
 2. Serve must be made underhand, and the shuttle must be hit below the waist.
-3. Excessive or exaggerated movements will be considered illegal or disruptive to the opponent’s readiness.
+3. Excessive or exaggerated movements will be considered illegal or disruptive to the opponent's readiness.
 
-#### Qualification for Quarter-Finals and Semi-Finals
+#### Tie-Breaking Criteria
+If teams have equal points after group stage matches, the following criteria will be used to determine rankings:
 
-##### Womens and Mixed
-1. There are 2 groups.
-2. The top 4 teams from each group will advance to the semi-finals.
-
-##### Mens
-1. Top 2 teams from each group qualify for quarters (Total 6 teams).
-2. Remaining 2 teams are promoted based on their total scores in the group stage.
-3. Teams with the highest total scores are promoted to the quarter-finals automatically.
-4. Normalization is applied to remaining 2 teams if scores are the same.
-
-##### Normalizing Purpose
-To fairly compare teams across different groups by adjusting scores based on group performance.
-
-**Method**:
-                Normalized Score = (Points Scored - Points Conceded) / Total Matches Played
-
-**Example**:
-- **Team A**:
-  - Points Scored: 210
-  - Points Conceded: 180
-  - Matches Played: 10
-  - Normalized Score for Team A = (210 - 180) / 10 = 30 / 10 = 3
-- **Team B**:
-  - Points Scored: 200
-  - Points Conceded: 190
-  - Matches Played: 10
-  - Normalized Score for Team B = (200 - 190) / 10 = 10 / 10 = 1
-
-After calculating the normalized scores, teams with the highest normalized scores will be selected to advance. In this example, Team A has the highest normalized score of 3, so Team A would be the additional team selected for the semi-finals.
-
-If teams have equal normalized scores after applying the normalization method, then we will use tie breaker criteria:
 1. **Head-to-Head Result**: Compare the results of the matches played between the tied teams. The team with the better head-to-head record advances.
 2. **Points Difference**: Calculate the difference between points scored and points conceded for each team. The team with the higher points difference advances.
 3. **Points Scored**: Compare the total points scored by each team. The team with the higher total points scored advances.
 4. **Lowest Points Conceded**: Compare the total points conceded by each team. The team with the lowest total points conceded advances.
 5. **Fair Play Record**: If all other criteria fail to break the tie, use a fair play record (e.g., fewer fouls, warnings, or penalties).
-
 """)
-elif st.session_state.selected_category == 'Results':
-    st.subheader("Results")
-    tab1, tab2, tab3 = st.tabs(["Mixed Doubles", "Women's Doubles", "Men's Doubles"])
-    with tab1:
 
-        # Create DataFrame for Mixed A
-        st.caption('Mixed A')
-        st.dataframe(sort_badminton_data(mixed_a), hide_index=True, use_container_width=True)
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        
+        try:
+            # Load the fixtures CSV which also contains results
+            df_matches = pd.read_csv("csv/group_stage_matches_latest.csv")
+            
+            # Create tabs for different categories
+            tab1, tab2, tab3 = st.tabs(["Mixed Doubles", "Women's Doubles", "Men's Doubles"])
+            
+            # Function to calculate team standings from matches
+            def calculate_standings(category_df):
+                # Create a dictionary to store team stats
+                team_stats = {}
+                
+                # Process each match
+                for _, row in category_df.iterrows():
+                    team1 = row['Team 1']
+                    team2 = row['Team 2']
+                    score1 = row['Team 1 Score']
+                    score2 = row['Team 2 Score']
+                    
+                    # Initialize team stats if not already present
+                    for team in [team1, team2]:
+                        if team not in team_stats:
+                            team_stats[team] = {
+                                'Team': team,
+                                'Matches Played': 0,
+                                'Matches Won': 0,
+                                'Matches Lost': 0,
+                                'Points Won': 0,
+                                'Points Lost': 0,
+                                'Points Difference': 0,
+                                'Group': row['Group']
+                            }
+                    
+                    # Only count completed matches (where scores are recorded)
+                    if pd.notna(score1) and pd.notna(score2):
+                        # Update matches played
+                        team_stats[team1]['Matches Played'] += 1
+                        team_stats[team2]['Matches Played'] += 1
+                        
+                        # Update points
+                        team_stats[team1]['Points Won'] += int(score1)
+                        team_stats[team1]['Points Lost'] += int(score2)
+                        team_stats[team2]['Points Won'] += int(score2)
+                        team_stats[team2]['Points Lost'] += int(score1)
+                        
+                        # Update wins/losses
+                        if int(score1) > int(score2):
+                            team_stats[team1]['Matches Won'] += 1
+                            team_stats[team2]['Matches Lost'] += 1
+                        else:
+                            team_stats[team2]['Matches Won'] += 1
+                            team_stats[team1]['Matches Lost'] += 1
+                
+                # Calculate points difference
+                for team in team_stats:
+                    team_stats[team]['Points Difference'] = team_stats[team]['Points Won'] - team_stats[team]['Points Lost']
+                
+                # Convert to DataFrame and sort
+                standings_df = pd.DataFrame(list(team_stats.values()))
+                if not standings_df.empty:
+                    # Sort by group first, then by matches won, then by points difference
+                    standings_df = standings_df.sort_values(
+                        by=['Group', 'Matches Won', 'Points Difference'], 
+                        ascending=[True, False, False]
+                    )
+                    
+                    # If the DataFrame is empty or missing some columns, return an empty DataFrame with proper columns
+                    if 'Team' not in standings_df.columns:
+                        return pd.DataFrame(columns=['Team', 'Matches Played', 'Matches Won', 'Matches Lost', 
+                                                     'Points Won', 'Points Lost', 'Points Difference', 'Group'])
+                    
+                    return standings_df
+                else:
+                    # Return empty DataFrame with correct columns
+                    return pd.DataFrame(columns=['Team', 'Matches Played', 'Matches Won', 'Matches Lost', 
+                                                 'Points Won', 'Points Lost', 'Points Difference', 'Group'])
+            
+            # Display standings for each category
+            with tab1:
+                st.subheader("Mixed Doubles Standings")
+                mixed_matches = df_matches[df_matches['Category'] == 'Mixed']
+                
+                if not mixed_matches.empty:
+                    mixed_standings = calculate_standings(mixed_matches)
+                    
+                    # Get unique groups
+                    groups = mixed_standings['Group'].unique() if 'Group' in mixed_standings.columns else []
+                    
+                    for group in sorted(groups):
+                        st.caption(f'**{group}**')
+                        group_df = mixed_standings[mixed_standings['Group'] == group]
+                        st.dataframe(group_df[['Team', 'Matches Played', 'Matches Won', 'Matches Lost', 
+                                               'Points Won', 'Points Lost', 'Points Difference']], 
+                                     use_container_width=True)
+                else:
+                    st.info("No match data available yet for Mixed Doubles.")
+            
+            with tab2:
+                st.subheader("Women's Doubles Standings")
+                womens_matches = df_matches[df_matches['Category'] == "Women’s"]
+                print(womens_matches)
+                if not womens_matches.empty:
+                    womens_standings = calculate_standings(womens_matches)
+                    
+                    # Get unique groups
+                    groups = womens_standings['Group'].unique() if 'Group' in womens_standings.columns else []
+                    
+                    for group in sorted(groups):
+                        st.caption(f'**{group}**')
+                        group_df = womens_standings[womens_standings['Group'] == group]
+                        st.dataframe(group_df[['Team', 'Matches Played', 'Matches Won', 'Matches Lost', 
+                                              'Points Won', 'Points Lost', 'Points Difference']], 
+                                    use_container_width=True)
+                else:
+                    st.info("No match data available yet for Women's Doubles.")
+            
+            with tab3:
+                st.subheader("Men's Doubles Standings")
+                mens_matches = df_matches[df_matches['Category'] == "Men’s"]
+                
+                if not mens_matches.empty:
+                    mens_standings = calculate_standings(mens_matches)
+                    
+                    # Get unique groups
+                    groups = mens_standings['Group'].unique() if 'Group' in mens_standings.columns else []
+                    
+                    for group in sorted(groups):
+                        st.caption(f'**{group}**')
+                        group_df = mens_standings[mens_standings['Group'] == group]
+                        st.dataframe(group_df[['Team', 'Matches Played', 'Matches Won', 'Matches Lost', 
+                                              'Points Won', 'Points Lost', 'Points Difference']], 
+                                    use_container_width=True)
+                else:
+                    st.info("No match data available yet for Men's Doubles.")
+                    
+            # Show recent match results
+            st.subheader("Recent Match Results")
+            completed_matches = df_matches[pd.notna(df_matches['Team 1 Score'])]
+            if not completed_matches.empty:
+                st.dataframe(
+                    completed_matches[['Category', 'Group', 'Team 1', 'Team 1 Score', 'Team 2 Score', 'Team 2']], 
+                    use_container_width=True
+                )
+            else:
+                st.info("No completed matches yet.")
+                
+        except Exception as e:
+            st.error(f"Error loading or processing results: {e}")
+            st.info("Please ensure 'group_stage_matches_latest.csv' is properly formatted and available.")
 
-        # Define the data for Mixed B
+# ---------- CRICKET TAB ----------
+with tabs[1]:
+    sport = "cricket"
+    init_state(sport)
+    st.header("🏏 Cricket")
+    
+    # Under construction banner
+    st.warning("🚧 Cricket section under construction 🚧")
+    
+    show_buttons(sport)
 
-        # Create DataFrame for Mixed B
-        st.caption('Mixed B')
-        st.dataframe(sort_badminton_data(mixed_b), hide_index=True, use_container_width=True)
-    with tab2:
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Cricket fixtures will be updated soon.")
 
-        # Create DataFrame for Mixed A
-        st.caption('Women A')
-        st.dataframe(sort_badminton_data(women_a), hide_index=True, use_container_width=True)
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
 
-        # Define the data for Mixed B
-        # Create DataFrame for Mixed B
-        st.caption('Women B')
-        st.dataframe(sort_badminton_data(women_b), hide_index=True, use_container_width=True)
-    with tab3:
-        # Create DataFrame for Mixed A
-        st.caption('Men A')
-        st.dataframe(sort_badminton_data(men_a), hide_index=True, use_container_width=True)
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("Results will be published after the first match.")
 
-        # Define the data for Mixed B
+# ---------- FOOTBALL TAB ----------
+with tabs[2]:
+    sport = "football"
+    init_state(sport)
+    st.header("⚽ Football")
+    
+    # Under construction banner
+    st.warning("🚧 Football section under construction 🚧")
+    
+    show_buttons(sport)
 
-        # Create DataFrame for Mixed B
-        st.caption('Men B')
-        st.dataframe(sort_badminton_data(men_b), hide_index=True, use_container_width=True)
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Football fixtures coming soon.")
 
-        # Define the data for Mixed B
-        # Create DataFrame for Mixed B
-        st.caption('Men C')
-        st.dataframe(sort_badminton_data(men_c), hide_index=True, use_container_width=True)
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
+
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("Match results will be shown here.")
+
+# ---------- TABLE TENNIS TAB ----------
+with tabs[3]:
+    sport = "tt"
+    init_state(sport)
+    st.header("🏓 Table Tennis")
+    
+    # Under construction banner
+    st.warning("🚧 Table Tennis section under construction 🚧")
+    
+    show_buttons(sport)
+
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Table Tennis fixtures will be updated soon.")
+
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
+
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("No matches played yet.")
+
+# ---------- CARROMS TAB ----------
+with tabs[4]:
+    sport = "carroms"
+    init_state(sport)
+    st.header("🎯 Carroms")
+    
+    # Under construction banner
+    st.warning("🚧 Carroms section under construction 🚧")
+    
+    show_buttons(sport)
+
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Carroms fixtures will be updated soon.")
+
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
+
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("Updates coming soon")
+
+# ---------- Basket TAB ----------
+with tabs[5]:
+    sport = "Basket Ball"
+    init_state(sport)
+    st.header("Basket Ball")
+    
+    # Under construction banner
+    st.warning("🚧 Basket Ball section under construction 🚧")
+    
+    show_buttons(sport)
+
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Basket Ball fixtures will be updated soon.")
+
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
+
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("Updates coming soon")
+
+# ---------- Volley TAB ----------
+with tabs[6]:
+    sport = "Volley Ball"
+    init_state(sport)
+    st.header("Volley Ball")
+    
+    # Under construction banner
+    st.warning("🚧 Volley Ball section under construction 🚧")
+    
+    show_buttons(sport)
+
+    if st.session_state[f"{sport}_fixtures"]:
+        st.subheader("📅 Fixtures")
+        st.info("Volley Ball fixtures will be updated soon.")
+
+    elif st.session_state[f"{sport}_rules"]:
+        st.subheader("📜 Rules")
+        st.markdown("Updates coming soon")
+
+    elif st.session_state[f"{sport}_results"]:
+        st.subheader("📊 Results")
+        st.info("Updates coming soon")
+
+# Footer with page info
+st.markdown("---")
+st.caption("PAI Premier League 2024 - Updated: May 2025")
