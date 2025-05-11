@@ -484,4 +484,4 @@ with tabs[6]:
 
 # Footer with page info
 st.markdown("---")
-st.caption("PAI Premier League 2024 - Updated: May 2025")
+st.caption("PAI Premier League 2025 Season 1 - Updated: May 2025")
