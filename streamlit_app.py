@@ -3,7 +3,7 @@ import pandas as pd
 
 # App config
 st.set_page_config(page_title="PAI Premier League", layout="wide", page_icon="🏆")
-st.logo('csv/tmp_bcff20e0-0f45-403b-a578-3114ce1d6427.png',size="medium")
+st.logo('images/tmp_bcff20e0-0f45-403b-a578-3114ce1d6427.png',size="medium")
 # Session state initialization
 def init_state(sport):
     for section in ["fixtures", "rules", "results"]:
