@@ -151,11 +151,11 @@ with tabs[0]:
 
 ##### Women's Division
 1. There are 2 groups in the women's division.
-2. The top 4 teams from each group will advance to the quarter-finals.
+2. The top 2 teams from each group will advance to the semi-finals.
 
 ##### Mixed Division
 1. There are 2 groups in the mixed division.
-2. The top 4 teams from each group will advance to the quarter-finals.
+2. The top 2 teams from each group will advance to the semi-finals.
 
 #### Quarter-Finals, Semi-Finals, and Finals
 1. Matches will be best of three sets.
@@ -174,7 +174,7 @@ with tabs[0]:
 #### Scoring System
 1. Rally scoring will be used (a point is scored on every serve, regardless of which team served).
 2. In the event of a tie at the end of a match, the first team to lead by 2 points wins.
-3. After 30 points, sudden death applies.
+3. After 21 points for 15-set (for 21-set it will be 30), sudden death applies.
 
 #### Service Rules
 1. Service will be decided by a coin toss.
