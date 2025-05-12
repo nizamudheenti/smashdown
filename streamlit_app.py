@@ -86,7 +86,7 @@ with tabs[0]:
             selected_cat = st.selectbox("Select Category", categories)
             
             # Filter and show the fixtures for the selected category
-            filtered_fixtures = df_fixtures[df_fixtures["Category"] == selected_cat]
+            filtered_fixtures = df_fixtures[df_fixtures["Category"] == selected_cat].reset_index(drop=True)
             
             # Display Group Summary
             st.subheader("Group Summary")
