@@ -144,6 +144,10 @@ with tabs[0]:
 1. Each team will play against every other team in their group.
 2. Each match will be played for one set only to 21 points.
 
+#### Quarter-Finals, Semi-Finals, and Finals
+1. Matches will be best of three sets.
+2. Each set will be played to 15 points.
+
 #### Qualification for Knockout Stages
 ##### Men's Division
 1. There are 4 groups in the men's division.
@@ -156,10 +160,6 @@ with tabs[0]:
 ##### Mixed Division
 1. There are 2 groups in the mixed division.
 2. The top 2 teams from each group will advance to the semi-finals.
-
-#### Quarter-Finals, Semi-Finals, and Finals
-1. Matches will be best of three sets.
-2. Each set will be played to 15 points.
 
 #### General
 1. Each match will begin promptly at the scheduled time.
