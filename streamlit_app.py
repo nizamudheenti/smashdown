@@ -119,7 +119,7 @@ with tabs[0]:
             if not upcoming_fixtures.empty:
                 st.subheader("Upcoming Matches")
                 st.dataframe(
-                    upcoming_fixtures[["Group", "Team 1", "Team 2"]], 
+                    upcoming_fixtures[["Group", "Team 1", "Team 2","Time","Court"]], 
                     use_container_width=True
                 )
             else:
@@ -196,7 +196,7 @@ If teams have equal points after group stage matches, the following criteria wil
         
         try:
             # Load the fixtures CSV which also contains results
-            df_matches = pd.read_csv("csv/group_stage_matches_latest.csv")
+            df_matches = pd.read_csv("csv/fixture.csv")
             
             # Create tabs for different categories
             tab1, tab2, tab3 = st.tabs(["Mixed Doubles", "Women's Doubles", "Men's Doubles"])
@@ -293,7 +293,7 @@ If teams have equal points after group stage matches, the following criteria wil
             
             with tab2:
                 st.subheader("Women's Doubles Standings")
-                womens_matches = df_matches[df_matches['Category'] == "Women’s"]
+                womens_matches = df_matches[df_matches['Category'] == "Women's"]
                 print(womens_matches)
                 if not womens_matches.empty:
                     womens_standings = calculate_standings(womens_matches)
@@ -312,7 +312,7 @@ If teams have equal points after group stage matches, the following criteria wil
             
             with tab3:
                 st.subheader("Men's Doubles Standings")
-                mens_matches = df_matches[df_matches['Category'] == "Men’s"]
+                mens_matches = df_matches[df_matches['Category'] == "Men's"]
                 
                 if not mens_matches.empty:
                     mens_standings = calculate_standings(mens_matches)
