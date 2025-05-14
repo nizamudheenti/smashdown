@@ -79,7 +79,7 @@ with tabs[0]:
         
         try:
             # Read the fixture data from the CSV file
-            df_fixtures = pd.read_csv("csv/group_stage_matches_latest.csv")
+            df_fixtures = pd.read_csv("csv/fixture.csv")
             
             # Get unique categories for selection
             categories = df_fixtures["Category"].unique().tolist()
