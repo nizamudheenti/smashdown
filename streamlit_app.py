@@ -118,10 +118,19 @@ with tabs[0]:
             # Display upcoming fixtures
             if not upcoming_fixtures.empty:
                 st.subheader("Upcoming Matches")
-                st.dataframe(
-                    upcoming_fixtures[["Group", "Team 1", "Team 2","Time","Court"]], 
-                    use_container_width=True
-                )
+                teams=upcoming_fixtures["Team 1"].unique()+upcoming_fixtures["Team 2"].unique()
+                selected_cat = st.selectbox("Select Team",['All']+teams )
+                if selected_cat != 'All':
+                    upcoming_fixtures = upcoming_fixtures[(upcoming_fixtures["Team 1"] == selected_cat) | (upcoming_fixtures["Team 2"] == selected_cat)]
+                    st.dataframe(
+                        upcoming_fixtures[["Group", "Team 1", "Team 2","Time","Court"]], 
+                        use_container_width=True
+                    )
+                else:
+                    st.dataframe(
+                        upcoming_fixtures[["Group", "Team 1", "Team 2","Time","Court"]], 
+                        use_container_width=True
+                    )
             else:
                 st.info("No upcoming fixtures found for this category.")
                 
