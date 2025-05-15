@@ -118,8 +118,9 @@ with tabs[0]:
             # Display upcoming fixtures
             if not upcoming_fixtures.empty:
                 st.subheader("Upcoming Matches")
-                teams=upcoming_fixtures["Team 1"].unique()+upcoming_fixtures["Team 2"].unique()
-                selected_cat = st.selectbox("Select Team",['All']+teams )
+                teams=['All']
+                teams.extend(upcoming_fixtures["Team 1"].unique()+upcoming_fixtures["Team 2"].unique())
+                selected_cat = st.selectbox("Select Team",teams)
                 if selected_cat != 'All':
                     upcoming_fixtures = upcoming_fixtures[(upcoming_fixtures["Team 1"] == selected_cat) | (upcoming_fixtures["Team 2"] == selected_cat)]
                     st.dataframe(
