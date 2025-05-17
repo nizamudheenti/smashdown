@@ -1,16 +1,16 @@
 Category,Group,Team 1,Team 2,Time,Court,Team 1 Score,Team 2 Score,Winner
-Men's,Group A,Emmanuel & Dion,Alex & Nidhin,10:00-10:15,2,,,
-Men's,Group B,Nizam & Rakesh,Bazed & Jeen,10:00-10:15,1,,,
-Women's,Group A,Tanvi & Dheena,Arya & Pappy,10:00-10:15,3,,,
-Women's,Group A,Aleena & Karthika,Karthi & Swetha,10:15-10:30,3,,,
-Women's,Group B,Josna & Sara,Josmy & Athira,10:15-10:30,2,,,
-Mixed,Group A,Pankaj & Christeena,Riya & Kiran,10:15-10:30,1,,,
-Men's,Group C,Jazim & Jacob,Deepak & Alan,10:30-10:45,2,,,
-Men's,Group D,Jubit & Kalesh,Bipin & Aljo,10:30-10:45,1,,,
-Women's,Group B,Amrutha & Ann,Parvathi & Sithara,10:30-10:45,3,,,
+Men's,Group A,Emmanuel & Dion,Alex & Nidhin,10:00-10:15,2,21,11,Emmanuel & Dion
+Men's,Group B,Nizam & Rakesh,Bazed & Jeen,10:00-10:15,1,21,1,Nizam & Rakesh
+Women's,Group A,Tanvi & Dheena,Arya & Pappy,10:00-10:15,3,21,16,Tanvi & Dheena
+Women's,Group A,Aleena & Karthika,Karthi & Swetha,10:15-10:30,3,12,21,Karthi & Swetha
+Women's,Group B,Josna & Sara,Josmy & Athira,10:15-10:30,2,21,16,Josna & Sara
+Mixed,Group A,Pankaj & Christeena,Riya & Kiran,10:15-10:30,1,21,19,Pankaj & Christeena
+Men's,Group C,Jazim & Jacob,Deepak & Alan,10:30-10:45,2,21,7,Jazim & Jacob
+Men's,Group D,Jubit & Kalesh,Bipin & Aljo,10:30-10:45,1,5,21,Bipin & Aljo
+Women's,Group B,Amrutha & Ann,Parvathi & Sithara,10:30-10:45,3,4,21,Parvathi & Sithara
 Men's,Group A,Namith & Irshad,Althaf & Vipin,10:45-11:00,1,,,
-Men's,Group B,Atul & Vishnu,Neeraj & Jithin,10:45-11:00,2,,,
-Men's,Group D,Saif & Sidharth,Adil & Akshay,10:45-11:00,3,,,
+Men's,Group B,Atul & Vishnu,Neeraj & Jithin,10:45-11:00,2,3,21,Neeraj & Jithin
+Men's,Group D,Saif & Sidharth,Adil & Akshay,10:45-11:00,3,0,7,Adil & Akshay
 Women's,Group A,Tanvi & Dheena,Shama & Amrita,11:00-11:15,1,,,
 Women's,Group B,Josmy & Athira,Amrutha & Ann,11:00-11:15,2,,,
 Mixed,Group B,Ashik & Sandra,Aditya & Devananda,11:00-11:15,3,,,
