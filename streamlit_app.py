@@ -394,19 +394,56 @@ with tabs[2]:
     init_state(sport)
     st.header("⚽ Football")
     
-    # Under construction banner
-    st.warning("🚧 Football section under construction 🚧")
-    
+    # Under construction bannerS    
     show_buttons(sport)
 
     if st.session_state[f"{sport}_fixtures"]:
         st.subheader("📅 Fixtures")
-        st.info("Football fixtures coming soon.")
+        st.markdown("""### ⚽ PREVALENT AI PREMIER LEAGUE – 5s FOOTBALL FIXTURES
+
+---
+
+## 🧔‍♂️ Men’s 5s Fixtures
+
+- **27-May-25**
+  - ⏰ 8:00 PM – *Titans vs Spartans*  
+    📊 *Score:* TBD – TBD  
+    🏆 *Winner:* TBD
+
+  - ⏰ 8:30 PM – *Gladiators vs Vikings*
+
+- **28-May-25**
+  - ⏰ 8:00 PM – *Spartans vs Vikings*
+  - ⏰ 8:30 PM – *Titans vs Gladiators*
+
+- **29-May-25**
+  - ⏰ 8:00 PM – *Spartans vs Gladiators*
+  - ⏰ 8:30 PM – *Titans vs Vikings*
+
+- **03-Jun-25**
+  - ⏰ 8:00 PM – *Finalist 1 vs Finalist 2*
+
+---
+
+## 👩‍🦰 Women’s 5s Penalty Shootout Fixtures
+
+- **29-May-25**
+  - ⏰ 7:00 PM – *Gladiators vs Vikings*
+  - ⏰ 7:15 PM – *Titans vs Spartans*
+  - ⏰ 7:30 PM – *Titans vs Gladiators*
+  - ⏰ 7:45 PM – *Spartans vs Vikings*
+
+- **03-Jun-25**
+  - ⏰ 7:00 PM – *Titans vs Vikings*
+  - ⏰ 7:15 PM – *Spartans vs Gladiators*
+  - ⏰ 7:45 PM – *Finalist 1 vs Finalist 2*
+
+""")
 
     elif st.session_state[f"{sport}_rules"]:
         st.subheader("📜 Rules")
         st.markdown("""
-        # Men's 5's Category – Tournament Rules ⚽
+        ### Men's 5's Category – Tournament Rules ⚽
 
 1. The tournament will follow a **league + knockout** format.
 2. Team line-up for a match can have **up to 8 players**, including 5 starting players and 3 substitutes. Teams can register **up to 10 players**; only registered players will be allowed to play.
@@ -439,7 +476,7 @@ with tabs[2]:
 
 ---
 
-# Women's Penalty Shootout – Tournament Rules 🥅
+### Women's Penalty Shootout – Tournament Rules 🥅
 
 1. Each team will consist of a total of **5 players**, including a **goalkeeper**.
 2. Teams may have **up to 3 additional reserve players**, if desired.
