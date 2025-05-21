@@ -399,11 +399,7 @@ with tabs[2]:
 
     if st.session_state[f"{sport}_fixtures"]:
         st.subheader("📅 Fixtures")
-        st.markdown("""### ⚽ PREVALENT AI PREMIER LEAGUE – 5s FOOTBALL FIXTURES
-
----
-
-#### Men’s 5s Fixtures
+        st.markdown("""#### Men’s 5s Fixtures
 
 - **27-May-25**
   - ⏰ 8:00 PM – *Titans vs Spartans*  
