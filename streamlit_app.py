@@ -405,7 +405,53 @@ with tabs[2]:
 
     elif st.session_state[f"{sport}_rules"]:
         st.subheader("📜 Rules")
-        st.markdown("Updates coming soon")
+        st.markdown("""
+        # Men's 5's Category – Tournament Rules ⚽
+
+1. The tournament will follow a **league + knockout** format.
+2. Team line-up for a match can have **up to 8 players**, including 5 starting players and 3 substitutes. Teams can register **up to 10 players**; only registered players will be allowed to play.
+3. The team captain or designated representative must register the team before the **deadline – 20th May 2025**.
+4. If a team fails to report **15 minutes before** the match start time, it will be considered a **walk-over**.
+5. **Rolling substitutions** are allowed throughout the game, with no restrictions on the number.
+6. Substitutions can be made during play or during breaks in the game.
+7. There will be **no offside rule**.
+8. If the ball leaves the pitch, **kick-in** from the sideline.
+9. All **restarts after goals** are from the **middle of the field**.
+10. Players can pass the ball to their own keeper, but the **goalkeeper is not allowed to pick it up** (standard back-pass rule applies).
+11. In the **semi-final or final**, if a match ends in a draw, it will proceed to a **penalty shootout**. If the shootout remains tied after the initial 3 kicks, it will proceed to **sudden death**.
+12. The goalkeeper must release the ball **within 6 seconds** of gaining control. Players taking throw-ins must also release the ball within 6 seconds of receiving it.
+13. Goalkeeper's **throwing range** is limited to the **center of the pitch**.
+14. For the penalty shootout, **only on-field players** are allowed to take the kick.
+15. Players must wear **football jerseys with numbers**. Goalkeeper jersey color should be **different** from other players.
+16. **Turf football boots** are required, and **shin guards are recommended**.
+17. Any **walkover or disqualification** is considered a **3-0 win** for the opposition.
+18. If a team **walks out in protest** during playtime, they will be **disqualified** from the tournament.
+19. A player receiving **two yellow cards** in a single match will be shown a **red card** and will **miss the next match**.
+20. The organizers will **not be responsible for any injuries** that may occur during the game.
+21. The **committee members** have the ultimate authority to make decisions regarding any **changes or postponements**.
+22. **Referee decisions are final** for all matches.
+23. If **two teams end up with the same point** , League standing will be based the below order 
+    - Goal difference
+    - Goals scored
+    - Head to head
+    - Goals conceded
+    - Fair play (Based on yellow and red cards)
+
+---
+
+# Women's Penalty Shootout – Tournament Rules 🥅
+
+1. Each team will consist of a total of **5 players**, including a **goalkeeper**.
+2. Teams may have **up to 3 additional reserve players**, if desired.
+3. All matches, including the **group stage, semi-final, and final**, will be conducted as **penalty shootouts**.
+    - Each team will take a series of **5 penalty kicks** to determine the winner.
+    - The team with the **most goals** at the end of the shootout will be declared the winner.
+4. If a match ends in a **tie** during the **knockout stage**, semi-final, or final, a **sudden-death penalty shootout** will take place.
+    - Teams will alternate penalty kicks.
+    - The **first team to score while the other misses** will be declared the winner.
+5. The **committee members** have the ultimate authority to make decisions regarding any **changes or postponements**.
+6. **Referee decisions are final** for all matches.
+""")
 
     elif st.session_state[f"{sport}_results"]:
         st.subheader("📊 Results")
