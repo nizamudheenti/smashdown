@@ -70,16 +70,6 @@ tabs = st.tabs(["🏸 Badminton", "🏏 Cricket", "⚽ Football", "🏓 Table Te
 # ---------- BADMINTON TAB ----------
 with tabs[0]:
     sport = "badminton"
-    st.markdown("### 🥇 Champions of the Court")
-    st.markdown("#### **Men’s Doubles**")
-    st.markdown("- **🏆 Winners:** Nizam & Rakesh *(Vikings)*")
-    st.markdown("- **🥈 Runners-up:** Jacob & Jazim *(Titans)*")
-    st.markdown("#### **Women’s Doubles**")
-    st.markdown("- **🏆 Winners:** Parvathi & Sithara *(Gladiators)*")
-    st.markdown("- **🥈 Runners-up:** Dheena & Tanvi *(Spartans)*")
-    st.markdown("#### **Mixed Doubles**")
-    st.markdown("- **🏆 Winners:** Ashik & Sandra *(Gladiators)*")
-    st.markdown("- **🥈 Runners-up:** Ananthu & Deepthi *(Spartans)*")
     init_state(sport)
     st.header("🏸 Badminton")
     show_buttons(sport)
@@ -215,7 +205,16 @@ If teams have equal points after group stage matches, the following criteria wil
 
     elif st.session_state[f"{sport}_results"]:
         st.subheader("📊 Results")
-        
+        st.markdown("### 🥇 Champions of the Court")
+        st.markdown("#### **Men’s Doubles**")
+        st.markdown("- **🏆 Winners:** Nizam & Rakesh *(Vikings)*")
+        st.markdown("- **🥈 Runners-up:** Jacob & Jazim *(Titans)*")
+        st.markdown("#### **Women’s Doubles**")
+        st.markdown("- **🏆 Winners:** Parvathi & Sithara *(Gladiators)*")
+        st.markdown("- **🥈 Runners-up:** Dheena & Tanvi *(Spartans)*")
+        st.markdown("#### **Mixed Doubles**")
+        st.markdown("- **🏆 Winners:** Ashik & Sandra *(Gladiators)*")
+        st.markdown("- **🥈 Runners-up:** Ananthu & Deepthi *(Spartans)*")
         try:
             # Load the fixtures CSV which also contains results
             df_matches = pd.read_csv("csv/fixture.csv")
