@@ -434,7 +434,6 @@ with tabs[2]:
 """)
 
     elif st.session_state[f"{sport}_rules"]:
-        st.subheader("📜 Rules")
         st.markdown("""
         ### Men's 5's Category – Tournament Rules ⚽
 
