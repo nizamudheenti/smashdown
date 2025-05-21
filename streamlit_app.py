@@ -509,9 +509,10 @@ with tabs[2]:
                 {"Date": "03-Jun-25", "Time": "7:45 PM", "Team 1": "Finalist 1", "Team 2": "Finalist 2","Winner":""},
             ]
         st.markdown("### Women's 5s Results")
-        st.dataframe(df_mens, use_container_width=True)
+        df_womens = pd.DataFrame(womens_fixtures)
+        st.dataframe(df_womens, use_container_width=True)
 
-df_womens = pd.DataFrame(womens_fixtures)
+
 
 # ---------- TABLE TENNIS TAB ----------
 with tabs[3]:
