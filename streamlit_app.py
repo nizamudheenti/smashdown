@@ -403,7 +403,7 @@ with tabs[2]:
 
 ---
 
-## Men’s 5s Fixtures
+#### Men’s 5s Fixtures
 
 - **27-May-25**
   - ⏰ 8:00 PM – *Titans vs Spartans*  
@@ -422,7 +422,7 @@ with tabs[2]:
 
 ---
 
-## Women’s 5s Penalty Shootout Fixtures
+#### Women’s 5s Penalty Shootout Fixtures
 
 - **29-May-25**
   - ⏰ 7:00 PM – *Gladiators vs Vikings*
