@@ -75,7 +75,7 @@ with tabs[0]:
     show_buttons(sport)
     st.markdown("### 🥇 Champions of the Court")
     st.markdown("#### **Men’s Doubles**")
-   st.markdown("#### **Men’s Doubles**")
+    st.markdown("#### **Men’s Doubles**")
     st.markdown("- **🏆 Winners:** Nizam & Rakesh *(Vikings)*")
     st.markdown("- **🥈 Runners-up:** Jacob & Jazim *(Titans)*")
 
