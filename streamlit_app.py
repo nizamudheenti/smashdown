@@ -73,6 +73,19 @@ with tabs[0]:
     init_state(sport)
     st.header("🏸 Badminton")
     show_buttons(sport)
+    st.markdown("""## 🥇 Champions of the Court
+
+    ### **Men’s Doubles**
+    - **🏆 Winners:** Nizam & Rakesh *(Vikings)*
+    - **🥈 Runners-up:** Jacob & Jazim *(Titans)*
+
+    ### **Women’s Doubles**
+    - **🏆 Winners:** Parvathi & Sithara *(Gladiators)*
+    - **🥈 Runners-up:** Dheena & Tanvi *(Spartans)*
+
+    ### **Mixed Doubles**
+    - **🏆 Winners:** Ashik & Sandra *(Gladiators)*
+    - **🥈 Runners-up:** Ananthu & Deepthi *(Spartans)*""")
 
     if st.session_state[f"{sport}_fixtures"]:
         st.subheader("📅 Fixtures")
