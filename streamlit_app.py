@@ -484,7 +484,34 @@ with tabs[2]:
 
     elif st.session_state[f"{sport}_results"]:
         st.subheader("📊 Results")
-        st.info("Match results will be shown here.")
+        mens_fixtures = [
+                {"Date": "27-May-25", "Time": "8:00 PM", "Team 1": "Titans", "Team 2": "Spartans","Winner":""},
+                {"Date": "27-May-25", "Time": "8:30 PM", "Team 1": "Gladiators", "Team 2": "Vikings","Winner":""},
+                {"Date": "28-May-25", "Time": "8:00 PM", "Team 1": "Spartans", "Team 2": "Vikings","Winner":""},
+                {"Date": "28-May-25", "Time": "8:30 PM", "Team 1": "Titans", "Team 2": "Gladiators","Winner":""},
+                {"Date": "29-May-25", "Time": "8:00 PM", "Team 1": "Spartans", "Team 2": "Gladiators","Winner":""},
+                {"Date": "29-May-25", "Time": "8:30 PM", "Team 1": "Titans", "Team 2": "Vikings","Winner":""},
+                {"Date": "03-Jun-25", "Time": "8:00 PM", "Team 1": "Finalist 1", "Team 2": "Finalist 2","Winner":""},
+            ]
+
+        df_mens = pd.DataFrame(mens_fixtures)
+        st.markdown("### Men's 5s Results")
+        st.dataframe(df_mens, use_container_width=True)
+
+        # Women's 5s Fixtures
+        womens_fixtures = [
+                {"Date": "29-May-25", "Time": "7:00 PM", "Team 1": "Gladiators", "Team 2": "Vikings","Winner":""},
+                {"Date": "29-May-25", "Time": "7:15 PM", "Team 1": "Titans", "Team 2": "Spartans","Winner":""},
+                {"Date": "29-May-25", "Time": "7:30 PM", "Team 1": "Titans", "Team 2": "Gladiators","Winner":""},
+                {"Date": "29-May-25", "Time": "7:45 PM", "Team 1": "Spartans", "Team 2": "Vikings","Winner":""},
+                {"Date": "03-Jun-25", "Time": "7:00 PM", "Team 1": "Titans", "Team 2": "Vikings","Winner":""},
+                {"Date": "03-Jun-25", "Time": "7:15 PM", "Team 1": "Spartans", "Team 2": "Gladiators","Winner":""},
+                {"Date": "03-Jun-25", "Time": "7:45 PM", "Team 1": "Finalist 1", "Team 2": "Finalist 2","Winner":""},
+            ]
+        st.markdown("### Women's 5s Results")
+        st.dataframe(df_mens, use_container_width=True)
+
+df_womens = pd.DataFrame(womens_fixtures)
 
 # ---------- TABLE TENNIS TAB ----------
 with tabs[3]:
