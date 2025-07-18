@@ -608,8 +608,6 @@ with tabs[3]:
     elif st.session_state[f"{sport}_rules"]:
         st.subheader("📜 Rules")
         st.markdown("""
-                    ## Table Tennis Rules
-
     ### Game Scoring
     - Games are played to **11 points**.
     - A team must win by at least **2 points**.
