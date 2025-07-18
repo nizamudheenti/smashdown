@@ -526,7 +526,7 @@ with tabs[3]:
     if st.session_state[f"{sport}_fixtures"]:
         st.subheader("📅 Fixtures")
         st.markdown("""
-## 🗓 21 July – MD 1 (Women)
+### 🗓 21 July – MD 1 (Women)
 - Deepthi – Sarah Jacob vs Parvathi Ambareesh – Arya Suresh  
 - Gopika – Neena vs Ann Maria Malekunnel & Riya Shanavas  
 - Pappy – Sandra vs Sithara – Pravitha  
@@ -534,7 +534,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 22 July – MD 2 (Women)
+### 🗓 22 July – MD 2 (Women)
 - Deepthi – Sarah Jacob vs Gopika – Neena  
 - Parvathi Ambareesh – Arya Suresh vs Surya – Aleena  
 - Pappy – Sandra vs Karthi Ashok & Swetha Shenoy  
@@ -542,7 +542,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 23 July – MD 3 (Women)
+### 🗓 23 July – MD 3 (Women)
 - Ann Maria Malekunnel & Riya Shanavas vs Surya – Aleena  
 - Ginu George & Amrutha Dinesh vs Merin – Sneha  
 - Deepthi – Sarah Jacob vs Ann Maria Malekunnel & Riya Shanavas  
@@ -550,7 +550,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 24 July – MD 4 (Women)
+### 🗓 24 July – MD 4 (Women)
 - Parvathi Ambareesh – Arya Suresh vs Gopika – Neena  
 - Surya – Aleena vs Gopika – Neena  
 - Sithara – Pravitha vs Karthi Ashok & Swetha Shenoy  
@@ -558,7 +558,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 28 July – MD 5 (Women)
+### 🗓 28 July – MD 5 (Women)
 - Deepthi – Sarah Jacob vs Surya – Aleena  
 - Parvathi Ambareesh – Arya Suresh vs Ann Maria Malekunnel & Riya Shanavas  
 - Pappy – Sandra vs Merin – Sneha  
@@ -566,7 +566,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 29 July – MD 1 (Men)
+### 🗓 29 July – MD 1 (Men)
 - Aljo Ajith – Sajith MS vs Emmanuel Joseph – Alan  
 - John – Jacob vs Rohaan George R & Shashi Salian  
 - Adithya – Deepaklal vs Doeny – Ganesh  
@@ -574,7 +574,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 30 July – MD 2 (Men)
+### 🗓 30 July – MD 2 (Men)
 - Aljo Ajith – Sajith MS vs John – Jacob  
 - Emmanuel Joseph – Alan vs Ashiq Mohammed & Sooraj Paul  
 - Adithya – Deepaklal vs Jazim – Neeraj  
@@ -582,7 +582,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 31 July – MD 3 (Men)
+### 🗓 31 July – MD 3 (Men)
 - Rohaan George R & Shashi Salian vs Ashiq Mohammed & Sooraj Paul  
 - Aljo Ajith – Sajith MS vs Rohaan George R & Shashi Salian  
 - Akshay – Akash vs Sidharth Nair & Pankaj Sherry Paret  
@@ -590,7 +590,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 4 August – MD 4 (Men)
+### 🗓 4 August – MD 4 (Men)
 - Emmanuel Joseph – Alan vs John – Jacob  
 - Ashiq Mohammed & Sooraj Paul vs John – Jacob  
 - Doeny – Ganesh vs Jazim – Neeraj  
@@ -598,7 +598,7 @@ with tabs[3]:
 
 ---
 
-## 🗓 5 August – MD 5 (Men)
+### 🗓 5 August – MD 5 (Men)
 - Aljo Ajith – Sajith MS vs Ashiq Mohammed & Sooraj Paul  
 - Emmanuel Joseph – Alan vs Rohaan George R & Shashi Salian  
 - Adithya – Deepaklal vs Sidharth Nair & Pankaj Sherry Paret  
