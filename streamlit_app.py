@@ -520,9 +520,7 @@ with tabs[3]:
     init_state(sport)
     st.header("🏓 Table Tennis")
     
-    # Under construction banner
-    st.warning("🚧 Table Tennis section under construction 🚧")
-    
+    # Under construction banner    
     show_buttons(sport)
 
     if st.session_state[f"{sport}_fixtures"]:
@@ -609,7 +607,8 @@ with tabs[3]:
 
     elif st.session_state[f"{sport}_rules"]:
         st.subheader("📜 Rules")
-        st.markdown("""## Table Tennis Rules
+        st.markdown("""
+                    ## Table Tennis Rules
 
     ### Game Scoring
     - Games are played to **11 points**.
