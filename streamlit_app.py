@@ -527,11 +527,121 @@ with tabs[3]:
 
     if st.session_state[f"{sport}_fixtures"]:
         st.subheader("📅 Fixtures")
-        st.info("Table Tennis fixtures will be updated soon.")
+        st.markdown("""
+## 🗓 21 July – MD 1 (Women)
+- Deepthi – Sarah Jacob vs Parvathi Ambareesh – Arya Suresh  
+- Gopika – Neena vs Ann Maria Malekunnel & Riya Shanavas  
+- Pappy – Sandra vs Sithara – Pravitha  
+- Karthi Ashok & Swetha Shenoy vs Ginu George & Amrutha Dinesh  
+
+---
+
+## 🗓 22 July – MD 2 (Women)
+- Deepthi – Sarah Jacob vs Gopika – Neena  
+- Parvathi Ambareesh – Arya Suresh vs Surya – Aleena  
+- Pappy – Sandra vs Karthi Ashok & Swetha Shenoy  
+- Sithara – Pravitha vs Merin – Sneha  
+
+---
+
+## 🗓 23 July – MD 3 (Women)
+- Ann Maria Malekunnel & Riya Shanavas vs Surya – Aleena  
+- Ginu George & Amrutha Dinesh vs Merin – Sneha  
+- Deepthi – Sarah Jacob vs Ann Maria Malekunnel & Riya Shanavas  
+- Pappy – Sandra vs Ginu George & Amrutha Dinesh  
+
+---
+
+## 🗓 24 July – MD 4 (Women)
+- Parvathi Ambareesh – Arya Suresh vs Gopika – Neena  
+- Surya – Aleena vs Gopika – Neena  
+- Sithara – Pravitha vs Karthi Ashok & Swetha Shenoy  
+- Merin – Sneha vs Karthi Ashok & Swetha Shenoy  
+
+---
+
+## 🗓 28 July – MD 5 (Women)
+- Deepthi – Sarah Jacob vs Surya – Aleena  
+- Parvathi Ambareesh – Arya Suresh vs Ann Maria Malekunnel & Riya Shanavas  
+- Pappy – Sandra vs Merin – Sneha  
+- Sithara – Pravitha vs Ginu George & Amrutha Dinesh  
+
+---
+
+## 🗓 29 July – MD 1 (Men)
+- Aljo Ajith – Sajith MS vs Emmanuel Joseph – Alan  
+- John – Jacob vs Rohaan George R & Shashi Salian  
+- Adithya – Deepaklal vs Doeny – Ganesh  
+- Jazim – Neeraj vs Akshay – Akash  
+
+---
+
+## 🗓 30 July – MD 2 (Men)
+- Aljo Ajith – Sajith MS vs John – Jacob  
+- Emmanuel Joseph – Alan vs Ashiq Mohammed & Sooraj Paul  
+- Adithya – Deepaklal vs Jazim – Neeraj  
+- Doeny – Ganesh vs Sidharth Nair & Pankaj Sherry Paret  
+
+---
+
+## 🗓 31 July – MD 3 (Men)
+- Rohaan George R & Shashi Salian vs Ashiq Mohammed & Sooraj Paul  
+- Aljo Ajith – Sajith MS vs Rohaan George R & Shashi Salian  
+- Akshay – Akash vs Sidharth Nair & Pankaj Sherry Paret  
+- Adithya – Deepaklal vs Akshay – Akash  
+
+---
+
+## 🗓 4 August – MD 4 (Men)
+- Emmanuel Joseph – Alan vs John – Jacob  
+- Ashiq Mohammed & Sooraj Paul vs John – Jacob  
+- Doeny – Ganesh vs Jazim – Neeraj  
+- Sidharth Nair & Pankaj Sherry Paret vs Jazim – Neeraj  
+
+---
+
+## 🗓 5 August – MD 5 (Men)
+- Aljo Ajith – Sajith MS vs Ashiq Mohammed & Sooraj Paul  
+- Emmanuel Joseph – Alan vs Rohaan George R & Shashi Salian  
+- Adithya – Deepaklal vs Sidharth Nair & Pankaj Sherry Paret  
+- Doeny – Ganesh vs Akshay – Akash  
+""")
 
     elif st.session_state[f"{sport}_rules"]:
         st.subheader("📜 Rules")
-        st.markdown("Updates coming soon")
+        st.markdown("""## Table Tennis Rules
+
+    ### Game Scoring
+    - Games are played to **11 points**.
+    - A team must win by at least **2 points**.
+    - Matches are typically **best of 3 games**.
+
+    ### Service Rules
+    - Players alternate serves every **2 points**.
+    - At **10-10 (deuce)**, service alternates **every point**.
+    - To serve:
+    - Toss the ball at least **6 inches (15 cm)** straight up from an **open palm**.
+    - Strike it **on the way down**.
+    - The serve must **bounce first on the server's side**, then on the **opponent's side**.
+    - In **doubles**:
+    - The serve must go from the **server's right court** to the **receiver's right court**.
+    - **Partners must alternate hits** during a rally.
+
+    ### Let Serves
+    - If a serve **touches the net** but still lands correctly, it's a **"let"** and is replayed.
+    - A total of **3 lets** are allowed.
+    - After the **third let**, the **opponent is awarded a point**.
+
+    ### Rally Rules
+    - **Volleys are not allowed** — the ball must **bounce on your side** before you hit it.
+    - If your shot **bounces back over the net without being touched** (due to spin), **you win the point**.
+    - **Touching the ball** with your **paddle hand** (including fingers and hand below the wrist) is **allowed**.
+    - Touching the ball with **any other part of the body** results in a **point for the opponent**.
+
+    ### Table Contact
+    - You may **not touch the table with your non-paddle hand** during play.
+    - Touching the table with the **paddle hand** or **other parts of the body** is **allowed**, **as long as it doesn't move the table**.
+    """)
 
     elif st.session_state[f"{sport}_results"]:
         st.subheader("📊 Results")
